@@ -45,6 +45,7 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
                         MapScreen(modifier = Modifier.weight(1f))
                         LibraryInfoScreen()
                         PersonInfoScreen()
+                        FootballTeamInfoScreen()
                     }
                 }
             }
@@ -148,6 +149,27 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
             Text(text = "Nombre: $name", style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
             Text(text = "Dirección: $address", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
             Text(text = "Teléfono: $phoneNumber", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+        }
+    }
+
+    @Composable
+    fun FootballTeamInfoScreen() {
+        val teamName = faker.team().name()
+        val coachName = faker.name().fullName()
+        val stadiumName = faker.address().city()
+        val foundationYear = faker.number().numberBetween(1880, 2021)
+        val championshipsWon = faker.number().numberBetween(0, 30)
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Text(text = "Nombre del Equipo: $teamName", style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
+            Text(text = "Nombre del Entrenador: $coachName", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Estadio: $stadiumName", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Año de Fundación: $foundationYear", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Campeonatos Ganados: $championshipsWon", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
         }
     }
 
