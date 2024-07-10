@@ -43,6 +43,7 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(modifier = Modifier.padding(innerPadding)) {
                         MapScreen(modifier = Modifier.weight(1f))
+                        LibraryInfoScreen()
                         PersonInfoScreen()
                     }
                 }
@@ -59,7 +60,10 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
             LatLng(16.8777072,  -92.1068149), // UDS
             LatLng(16.8978695, -92.0922434), // UDM
             LatLng(16.9004096, -92.1022763), // UPN
-            LatLng(16.9077055, -92.0679112) // UBBJ
+            LatLng(16.9077055, -92.0679112),// UBB
+            //Biblioteca
+            LatLng(16.9052604, -92.1159875),//EfrainBartalome
+            LatLng(16.9052604, -92.1159875),//FrayLaurencio
         )
 
         // Generar y añadir marcadores con coordenadas preestablecidas
@@ -112,6 +116,24 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
         }
     }
 
+    @Composable
+    fun LibraryInfoScreen() {
+        val libraryName = faker.company().name()
+        val librarianName = faker.name().fullName()
+        val address = faker.address().fullAddress()
+        val openingHours = "Abierto de ${faker.number().numberBetween(6, 10)} AM a ${faker.number().numberBetween(5, 9)} PM"
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Text(text = "Nombre de la Biblioteca: $libraryName", style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
+            Text(text = "Nombre del Bibliotecario: $librarianName", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Dirección: $address", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Horario de Apertura: $openingHours", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+        }
+    }
     @Composable
     fun PersonInfoScreen() {
         val name = faker.name().fullName()
