@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
                         MapScreen(modifier = Modifier.weight(1f))
                         LibraryInfoScreen()
                         PersonInfoScreen()
-                        FootballTeamInfoScreen()
+                        PeliScreen()
                     }
                 }
             }
@@ -152,26 +152,29 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
         }
     }
 
+
     @Composable
-    fun FootballTeamInfoScreen() {
-        val teamName = faker.team().name()
-        val coachName = faker.name().fullName()
-        val stadiumName = faker.address().city()
-        val foundationYear = faker.number().numberBetween(1880, 2021)
-        val championshipsWon = faker.number().numberBetween(0, 30)
+    fun PeliScreen() {
+        val movieTitle = faker.book().title()
+        val directorName = faker.name().fullName()
+        val releaseYear = faker.number().numberBetween(1920, 2023)
+        val genre = faker.book().genre()
+        val rating = faker.number().numberBetween(1, 10)
 
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            Text(text = "Nombre del Equipo: $teamName", style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
-            Text(text = "Nombre del Entrenador: $coachName", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
-            Text(text = "Estadio: $stadiumName", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
-            Text(text = "Año de Fundación: $foundationYear", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
-            Text(text = "Campeonatos Ganados: $championshipsWon", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Título de la Película: $movieTitle", style = androidx.compose.material3.MaterialTheme.typography.titleLarge)
+            Text(text = "Director: $directorName", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Año de Lanzamiento: $releaseYear", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Género: $genre", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
+            Text(text = "Calificación: $rating/10", style = androidx.compose.material3.MaterialTheme.typography.bodyMedium)
         }
     }
+
+
 
     @Composable
     fun Greeting(name: String, modifier: Modifier = Modifier) {
