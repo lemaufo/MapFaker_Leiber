@@ -65,6 +65,10 @@ class MainActivity : ComponentActivity(), OnMapReadyCallback {
             //Biblioteca
             LatLng(16.9052604, -92.1159875),//EfrainBartalome
             LatLng(16.9052604, -92.1159875),//FrayLaurencio
+            LatLng(16.9000000, -92.1200000), // Generada con Faker
+            LatLng(16.8800000, -92.1300000), // Generada con Faker
+            LatLng(16.8900000, -92.1400000), // Generada con Faker
+            LatLng(16.8952571, -92.0668286)
         )
 
         // Generar y añadir marcadores con coordenadas preestablecidas
